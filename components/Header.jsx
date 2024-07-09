@@ -11,33 +11,35 @@ const Header = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   return (
-    <nav className='w-full flex items-center justify-between overflow-hidden z-10 bg-primary p-4'>
-      <div className="flex items-center">
+    <nav className='w-full flex items-center justify-between overflow-hidden z-10 px-4'>
+      <div className="flex items-center mt-2">
         <Link href="/">
         <Image
           src="/potch_stream_hotel_demo_logo transparent.png"
           alt='Potch Stream Hotel Logo'
-          height={90}
-          width={90}
-          
+          height={60}
+          width={70}
         />
+        
         </Link>
+        Potch Stream
       </div>
+      <div className='flex'>
       
       {pathname !== "/login" && (
         <div className="flex items-center">
           {isLoggedIn ? (
             <div className='flex items-center space-x-4'>
-              <Button variant="default"><UserCircle2 /></Button>
-              <Button variant="destructive"><LogOut />Logout</Button>
+              <Button variant="ghost"><UserCircle2 /></Button>
             </div>
           ) : (
             <Link href="/login">
-              <Button variant="secondary"><LogIn />Member login</Button>
+              <Button variant="default"><LogIn />Member login</Button>
             </Link>
           )}
         </div>
       )}
+      </div>
     </nav>
   )
 }

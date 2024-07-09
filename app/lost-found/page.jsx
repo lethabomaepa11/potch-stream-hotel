@@ -1,3 +1,4 @@
+import CornerNav from '@/components/ui/CornerNav'
 import React from 'react'
 
 const LostAndFoundPage = () => {
