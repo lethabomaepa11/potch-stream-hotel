@@ -11,7 +11,7 @@ const Header = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   return (
-    <nav className='w-full flex items-center justify-between overflow-hidden z-10 px-4'>
+    <nav className='w-full fixed bg-white flex items-center justify-between overflow-hidden z-50 px-4'>
       <div className="flex items-center mt-2">
         <Link href="/">
         <Image

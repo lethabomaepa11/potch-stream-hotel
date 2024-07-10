@@ -17,13 +17,17 @@ const SideNav = () => {
     },{
         path: "/lost-found",
         text: "Lost and Found"
+    },
+    {
+        path: "/rooms",
+        text: "Rooms"
     },{
         path: "/payments",
         text: "Payments"
     },{
         path: "/faq",
         text: "Frequently asked questions"
-    },];
+    }];
 
   return (
     

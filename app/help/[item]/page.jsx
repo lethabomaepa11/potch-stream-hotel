@@ -27,6 +27,11 @@ const HelpItemPage = () => {
             path: "/lost-found",
             text: "A system to make sure that our clients do not lose their items forever...",
         },
+        {
+            heading: "Rooms",
+            path: "/rooms",
+            text: "Want to get help with the available rooms?",
+        },
     ]
   return (
     <div>
@@ -36,7 +41,7 @@ const HelpItemPage = () => {
         if(path == currentPath){
             return(
                 <div key="path" className='flex flex-col p-5'>
-                    <Label className='text-xl'>{data.heading}</Label>
+                    <Label className='text-2xl'>{data.heading}</Label>
                     <Label className='font-normal mt-5'>{data.text}</Label>
                 </div>
             )

@@ -21,10 +21,10 @@ export default function RootLayout({
       <body className={inter.className}>
         <div className="divide-y-2">
           <Header/>
-          <main>
+          <div>
             {children}
             <CornerNav/>
-          </main>
+          </div>
          
         </div>
         
