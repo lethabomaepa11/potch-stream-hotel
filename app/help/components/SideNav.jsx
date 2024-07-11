@@ -31,9 +31,9 @@ const SideNav = () => {
 
   return (
     
-       <nav className="flex flex-col w-fit">
+       <nav className="w-fit flex flex-col">
             <Link href="/"><Button variant="ghost"><HomeIcon/>Home</Button></Link>
-            <Link href=""><Button variant="ghost" className='mt-5'>Help Topics</Button></Link>
+            <Link href="/help"><Button variant="ghost" className='mt-5'>Help Topics</Button></Link>
               {paths.map(link =>{
                 
                 let path = `/help${link.path}`;

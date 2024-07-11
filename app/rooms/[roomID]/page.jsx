@@ -1,6 +1,10 @@
 import React from 'react'
+import {setRoomCookie} from "@/lib/actions"
 
-const RedirectToBooking = ({params}) => {
+
+
+const  RedirectToBooking = async ({params}) => {
+  await setRoomCookie(params.roomID)
   return (
     <div className='mt-20'>
       This is room {params.roomID},

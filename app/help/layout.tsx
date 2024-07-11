@@ -15,7 +15,7 @@ export default function HelpLayout({
   children: React.ReactNode;
 }>) {
   return (
-        <div className="flex h-fit w-screen mt-20  p-3 divide-x-2 overflow-x-hidden">    
+        <div className="flex h-fit w-screen mt-20  p-3 divide-x-2 overflow-x-hidden flex-col-reverse sm:flex-row">    
             <SideNav/>
             {children}
         </div>    

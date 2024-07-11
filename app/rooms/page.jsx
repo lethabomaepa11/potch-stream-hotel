@@ -5,6 +5,7 @@ import room2 from "@/public/rooms/room2.jpg"
 import room3 from "@/public/rooms/room3.jpg"  
 import room4 from "@/public/rooms/room4.png"  
 import room5 from "@/public/rooms/room5.jpg"  
+import { randomID } from '@/lib/actions'
 
 class RoomClass {
 
@@ -19,18 +20,18 @@ class RoomClass {
     description;
     price;
 }
-const RoomsPage = () => {
+const RoomsPage = async () => {
   
   const rooms = [
-    new RoomClass(1,room1,"An affordable suite!",599),
-    new RoomClass(2,room2,"An affordable suite!",1599),
-    new RoomClass(3,room3,"An affordable suite!",2589),
-    new RoomClass(4,room4,"An affordable suite!",658),
-    new RoomClass(5,room5,"An affordable suite!",13899),
+    new RoomClass(await randomID(10),room1,"An affordable suite!",599),
+    new RoomClass(await randomID(10),room2,"An affordable suite!",1599),
+    new RoomClass(await randomID(10),room3,"An affordable suite!",2589),
+    new RoomClass(await randomID(10),room4,"An affordable suite!",658),
+    new RoomClass(await randomID(10),room5,"An affordable suite!",13899),
   ]
   return (
     <div className='mt-20'>
-      <section className='flex flex-col gap-5 '>
+      <div className='flex flex-col sm:flex-row justify-center items-start flex-wrap gap-5'>
         {rooms.map(room =>{
             return <Room
             key={room.id}
@@ -41,7 +42,7 @@ const RoomsPage = () => {
         })}
         
         
-      </section>
+      </div>
       
     </div>
   )
