@@ -11,19 +11,23 @@ import {
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { redirect } from 'next/navigation'
-import { submitContactInfo } from '@/lib/actions'
+import { getRoomById, submitContactInfo } from '@/lib/actions'
+
 
 const ContactForm = () => {
+    
   return (
-    <form action={submitContactInfo}>
-    <Card className="mx-auto max-w-sm">
+    
+    <Card className="mx-auto max-w-md">
       <CardHeader>
         <CardTitle className="text-xl">Contact information</CardTitle>
         <CardDescription>
           Enter your information to make a booking
         </CardDescription>
       </CardHeader>
+      
       <CardContent>
+        <form action={submitContactInfo}>
         <div className="grid gap-4">
           <div className="grid grid-cols-2 gap-4">
             <div className="grid gap-2">
@@ -51,9 +55,10 @@ const ContactForm = () => {
           </div>
           <LoadingBtn/>
         </div>
+        </form>
       </CardContent>
     </Card>
-    </form>
+    
   )
 }
 

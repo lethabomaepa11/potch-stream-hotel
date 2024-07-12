@@ -1,0 +1,105 @@
+generator client {
+    provider = "prisma-client-js"
+}
+
+datasource db {
+    provider  = "postgresql"
+    url       = env("POSTGRES_PRISMA_URL")
+    directUrl = env("POSTGRES_URL_NON_POOLING")
+}
+
+model Answer {
+    id         String    @id @unique
+    questionId String?
+    a          String?
+    b          String?
+    c          String?
+    d          String?
+    Question   Question? @relation(fields: [questionId], references: [id])
+}
+
+model Followers {
+    id         String  @id
+    userId     String?
+    followerId String?
+    users      users?  @relation(fields: [followerId], references: [id])
+}
+
+model Question {
+    id            String   @id @unique
+    text          String?
+    quizId        String?
+    correctAnswer String?
+    Answer        Answer[]
+    Quiz          Quiz?    @relation(fields: [quizId], references: [id])
+}
+
+model Quiz {
+    id           String         @id @unique
+    topic        String
+    description  String?
+    authorId     String?
+    numQuestions Int?
+    timeLimit    Int?
+    Question     Question[]
+    users        users?         @relation(fields: [authorId], references: [id])
+    QuizResponse QuizResponse[]
+}
+
+model QuizResponse {
+    id                  String                @id @unique
+    quizId              String?
+    quizResponseId      String?
+    submitted_at        DateTime              @default(now())
+    userId              String?
+    Quiz                Quiz?                 @relation(fields: [quizId], references: [id])
+    users               users?                @relation(fields: [userId], references: [id])
+    QuizResponseAnswers QuizResponseAnswers[]
+}
+
+model QuizResponseAnswers {
+    id           String        @id
+    responseId   String?
+    question     Int?
+    answer       String?
+    QuizResponse QuizResponse? @relation(fields: [responseId], references: [id])
+}
+
+model users {
+    id           String         @id
+    email        String?        @unique
+    created_at   DateTime       @default(now())
+    updated_at   DateTime
+    password     String?
+    username     String?        @unique
+    Followers    Followers[]
+    Quiz         Quiz[]
+    QuizResponse QuizResponse[]
+}
+
+model Booking {
+    id        Int      @id @default(autoincrement())
+    randomID  String   @unique
+    firstname String
+    lastname  String
+    email     String
+    phone     String
+    room      Room     @relation(fields: [roomID], references: [id])
+    roomID    String
+    createdAt DateTime @default(now())
+}
+
+model Room {
+    id          String    @id @unique
+    image       String
+    price       Int
+    description String
+    bookings    Booking[]
+}
+
+model HelpPages {
+    id      Int    @id @default(autoincrement())
+    heading String
+    path    String
+    text    String
+}

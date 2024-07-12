@@ -3,6 +3,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Header"
 import CornerNav from "@/components/ui/CornerNav";
+import { ThemeProvider } from "@/components/themeProvider";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -19,15 +20,22 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <div className="divide-y-2">
-          <Header/>
-          <div>
-            {children}
-            <CornerNav/>
-          </div>
-         
-        </div>
+        <ThemeProvider
+        attribute="class"
+        defaultTheme="system"
+        enableSystem
+        disableTransitionOnChange>
+
         
+          <div className="divide-y-2">
+            <Header/>
+            <div>
+              {children}
+              <CornerNav/>
+            </div>
+          
+          </div>
+        </ThemeProvider>
         </body>
     </html>
   );
