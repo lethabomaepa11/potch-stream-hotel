@@ -14,32 +14,30 @@ export default function TextEditor({data,editable}) {
   // Stores the document JSON.
   const [blocks, setBlocks] = useState([]);
   let editor;
+  const initialContent = data != null ? JSON.parse(data.text) : [
+    {
+      type: "paragraph",
+      content: "You can simply click and edit",
+    },
+    {
+      type: "heading",
+      content: "This is a header",
+    },
+    {
+      type: "paragraph",
+      content: "This is a paragraph block",
+    },
+    {
+      type: "paragraph",
+    },
+  ];
+
   // Creates a new editor instance.
-  if(data != null ){
+  
     editor = useCreateBlockNote({
-    initialContent: JSON.parse(data.text),
-  });}
-  else{
-    editor = useCreateBlockNote({
-      initialContent: [
-        {
-          type: "paragraph",
-          content: "You can simply click and edit",
-        },
-        {
-          type: "heading",
-          content: "This is a header",
-        },
-        {
-          type: "paragraph",
-          content: "This is a paragraph block",
-        },
-        {
-          type: "paragraph",
-        },
-      ],
-    });
-  }
+    initialContent: initialContent,
+  });
+ 
  
   // Renders the editor instance and its document JSON.
   return (
