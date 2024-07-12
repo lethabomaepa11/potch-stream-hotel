@@ -1,7 +1,7 @@
 import { Label } from '@/components/ui/label';
 import React from 'react'
 import ViewHelp from '../components/ViewHelp';
-import { getHelpData } from '../layout';
+import { getHelpData } from "../../../lib/HelpPageQueries";
 
 const HelpItemPage = async () => {
     const helpData = await getHelpData();

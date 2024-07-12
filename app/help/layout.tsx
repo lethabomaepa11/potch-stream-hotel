@@ -1,15 +1,13 @@
 import type { Metadata } from "next";
 import SideNav from "@/app/help/components/SideNav"
 import { prisma } from "@/prisma/client";
+import { getHelpData } from "@/lib/HelpPageQueries";
 
 
 
 
 
-export const getHelpData = async() => {
-  const helpData = prisma.helpPages.findMany();
-  return helpData;
-}
+
 export default async function HelpLayout({
   children,
 }: Readonly<{

@@ -1,4 +1,4 @@
-import { getHelpData } from '@/app/help/layout'
+import { getHelpData } from '@/lib/HelpPageQueries'
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { Edit, PlusSquare, Trash2 } from 'lucide-react';
