@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+
 import SideNav from "@/app/help/components/SideNav"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
@@ -16,16 +16,9 @@ import PaymentInfoCard from "@/components/PaymentInfoCard"
 
 
 
-export const metadata: Metadata = {
-  title: "Potch Stream Hotel",
-  description: "Prototype of the Potch Stream hotel system for the cmpg223 module",
-};
 
-export default async function BookingLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+
+export default async function BookingLayout({ children}) {
     const roomID = cookies().get("roomID");
     roomID == undefined && redirect("/rooms");
     const room = await getRoomById(roomID.value);
